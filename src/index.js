@@ -29,7 +29,7 @@ async function fetchWeather(location) {
     const response = await fetch(requestURL, { mode: "cors" });
     const data = await response.json();
 
-    return data;
+    return processWeatherData(data);
 }
 
 fetchWeather("dublin");
