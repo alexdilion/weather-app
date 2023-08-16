@@ -20,7 +20,26 @@
                 <h1 class="logo-text">Weather App</h1>
             </div>
         </header>
-        <main></main>
+        <main>
+            <form action="">
+                <div class="query-wrapper">
+                    <input
+                        type="text"
+                        id="location-query"
+                        class="text-box fancy-border"
+                        placeholder=" "
+                        required />
+                    <label for="location-query">Location</label>
+                    <span class="query-error"></span>
+                </div>
+                <button
+                    type="submit"
+                    id="submit-location-query"
+                    class="query-button flex-center fancy-border">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+            </form>
+        </main>
         <footer class="flex-center">
             <p>
                 Alex Dilion &copy;

@@ -32,4 +32,4 @@ async function fetchWeather(location) {
     return processWeatherData(data);
 }
 
-fetchWeather("dublin");
+// fetchWeather("dublin");
