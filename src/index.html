@@ -15,38 +15,51 @@
     </head>
     <body>
         <header>
-            <div class="logo-wrapper flex-center">
-                <span class="material-symbols-outlined logo-icon">rainy_light</span>
-                <h1 class="logo-text">Weather App</h1>
-            </div>
-        </header>
-        <main>
-            <form action="">
-                <div class="query-wrapper">
-                    <input
-                        type="text"
-                        id="location-query"
-                        class="text-box fancy-border"
-                        placeholder=" "
-                        required />
-                    <label for="location-query">Location</label>
-                    <span class="query-error"></span>
+            <nav>
+                <div class="logo-wrapper flex-center">
+                    <span class="material-symbols-outlined logo-icon">rainy_light</span>
+                    <h1 class="logo-text">Weather App</h1>
                 </div>
-                <button
-                    type="submit"
-                    id="search-query-button"
-                    class="query-button flex-center fancy-border"
-                    aria-label="Submit location query">
-                    <span class="material-symbols-outlined">search</span>
-                </button>
-                <button
-                    type="button"
-                    id="current-location-button"
-                    class="flex-center query-button fancy-border"
-                    aria-label="Use current location">
-                    <span class="material-symbols-outlined">distance</span>
-                </button>
-            </form>
+                <form action="">
+                    <div class="query-wrapper">
+                        <input
+                            type="text"
+                            id="location-query"
+                            class="text-box fancy-border"
+                            placeholder=" "
+                            required />
+                        <label for="location-query">Location</label>
+                        <span class="query-error"></span>
+                    </div>
+                    <button
+                        type="submit"
+                        id="search-query-button"
+                        class="query-button flex-center fancy-border"
+                        aria-label="Submit location query">
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                    <button
+                        type="button"
+                        id="current-location-button"
+                        class="flex-center query-button fancy-border"
+                        aria-label="Use current location">
+                        <span class="material-symbols-outlined">distance</span>
+                    </button>
+                </form>
+            </nav>
+        </header>
+        <main data-empty="true">
+            <div class="placeholder">
+                <span class="material-symbols-outlined">foggy</span>
+                <p>
+                    Uncharted territory, eh?
+                    <br />
+                    Give us a location and we'll predict the elements!
+                </p>
+            </div>
+            <div class="forecasts-wrapper">
+                <div class="daily-forecasts"></div>
+            </div>
         </main>
         <footer class="flex-center">
             <p>
@@ -58,5 +71,27 @@
             </p>
             <a href="https://github.com/alexdilion/weather-app">Source Code</a>
         </footer>
+        <div class="templates">
+            <div class="card-big fancy-border" data-day-index="">
+                <h1 class="card-day"></h1>
+                <div class="card-image-wrapper">
+                    <img src="https://placehold.co/96" alt="" class="card-weather-icon" />
+                </div>
+                <div class="card-info">
+                    <p>
+                        Max:
+                        <span class="card-max-temperature"></span>
+                    </p>
+                    <p>
+                        Min:
+                        <span class="card-min-temperature"></span>
+                    </p>
+                    <p>
+                        Rain chance:
+                        <span class="card-rain-chance"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

@@ -2,6 +2,7 @@
     --black: #32373b;
     --white: #fcf7f8;
     --white-hover: #e7e7e7;
+    --grey: #cec8c9;
     --accent: #2191fb;
 }
 
@@ -22,11 +23,20 @@ body {
         "header" max-content
         "main-content" 1fr
         "footer" max-content / 1fr;
+    padding: 0 1rem;
 }
 
 header {
     grid-area: header;
-    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
 }
 
 main {
@@ -68,7 +78,7 @@ a:visited {
 }
 
 form {
-    margin: 2rem 0 0;
+    margin: 2rem 0;
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -86,6 +96,7 @@ form {
     background-color: var(--white);
     color: var(--black);
     height: 100%;
+    width: 100%;
 }
 
 .text-box:focus {
@@ -95,6 +106,8 @@ form {
 
 .query-wrapper {
     position: relative;
+    width: 80%;
+    max-width: 350px;
 }
 
 .text-box + label {
@@ -103,12 +116,13 @@ form {
     left: 0.5rem;
     top: 50%;
     translate: 0% -50%;
-    transition: top 0.15s ease-in;
+    transition: left 0.25s ease-in;
+    pointer-events: none;
 }
 
 :not(.text-box:placeholder-shown) + label,
 .text-box:focus + label {
-    top: -1rem;
+    left: -4.5rem;
 }
 
 .query-button {
@@ -120,6 +134,7 @@ form {
 
 .query-button:hover {
     cursor: pointer;
+    border-color: var(--accent);
 }
 
 .query-button:active {
@@ -128,4 +143,46 @@ form {
 
 button .material-symbols-outlined {
     color: inherit;
+}
+
+main[data-empty="true"] .placeholder,
+main[data-empty="false"] .forecasts-wrapper {
+    visibility: visible;
+}
+
+main[data-empty="false"] .placeholder,
+main[data-empty="true"] .forecasts-wrapper {
+    visibility: hidden;
+}
+
+main {
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-bottom: 3rem;
+    position: absolute;
+    translate: -50% -50%;
+    top: 50%;
+    left: 50%;
+}
+
+.placeholder p {
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.placeholder span {
+    color: var(--grey);
+    font-size: 6rem;
+    text-align: center;
+}
+
+.templates {
+    display: none;
 }

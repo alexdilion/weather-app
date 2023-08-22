@@ -1,0 +1,41 @@
+:root {
+    --black: #32373b;
+    --white: #fcf7f8;
+    --white-hover: #e7e7e7;
+    --accent: #2191fb;
+    --card-big-height: 300px;
+    --card-big-width: 200px;
+}
+
+.daily-forecasts {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+}
+
+.card-big {
+    height: var(--card-big-height);
+    width: var(--card-big-width);
+    top: 0;
+    transition: top 0.25s ease-out;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.card-big.selected-card {
+    position: relative;
+    border-width: 2px;
+    top: -1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.card-big .card-image-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
