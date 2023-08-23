@@ -6,6 +6,12 @@
     --accent: #2191fb;
 }
 
+@media screen and (min-width: 720px) {
+    body nav {
+        flex-direction: row;
+    }
+}
+
 *,
 ::before,
 ::after {
@@ -37,6 +43,10 @@ nav {
     justify-content: space-between;
     width: 100%;
     max-width: 1200px;
+    flex-direction: column;
+    margin: 2rem 0;
+    align-items: center;
+    gap: 1.5rem;
 }
 
 main {
@@ -78,10 +88,10 @@ a:visited {
 }
 
 form {
-    margin: 2rem 0;
     display: flex;
     justify-content: center;
     gap: 0.5rem;
+    height: 2.5rem;
 }
 
 .fancy-border {
@@ -116,13 +126,13 @@ form {
     left: 0.5rem;
     top: 50%;
     translate: 0% -50%;
-    transition: left 0.25s ease-in;
+    transition: top 0.25s ease-in;
     pointer-events: none;
 }
 
 :not(.text-box:placeholder-shown) + label,
 .text-box:focus + label {
-    left: -4.5rem;
+    top: -1rem;
 }
 
 .query-button {
@@ -181,6 +191,7 @@ main {
     color: var(--grey);
     font-size: 6rem;
     text-align: center;
+    user-select: none;
 }
 
 .templates {
