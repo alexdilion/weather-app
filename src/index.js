@@ -1,4 +1,8 @@
+import { format } from "date-fns";
+
 import "./style/index.css";
+import "./style/cards.css";
+import elements from "./elements";
 
 const WEATHER_URL =
     "http://api.weatherapi.com/v1/forecast.json?key=dfe8fba030ff459b8f3141617230708&days=3";
@@ -12,7 +16,8 @@ function processWeatherData(data) {
     };
 
     const forecastData = forecast.forecastday.map((forecastDay) => ({
-        date: forecastDay.date,
+        date: new Date(forecastDay.date),
+        day: format(new Date(forecastDay.date), "EEEE"),
         weather: forecastDay.day.condition.text,
         weatherImage: forecastDay.day.condition.icon,
         maxTemp: forecastDay.day.maxtemp_c,
@@ -20,6 +25,8 @@ function processWeatherData(data) {
         avgTemp: forecastDay.day.avgtemp_c,
         rainChance: forecastDay.day.daily_chance_of_rain,
     }));
+
+    console.log({ locationData, forecastData });
 
     return { locationData, forecastData };
 }
@@ -32,4 +39,7 @@ async function fetchWeather(location) {
     return processWeatherData(data);
 }
 
-// fetchWeather("dublin");
+elements.locationForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    fetchWeather(elements.locationQuery.value);
+});
