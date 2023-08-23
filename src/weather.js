@@ -22,8 +22,6 @@ function processWeatherData(data) {
         rainChance: forecastDay.day.daily_chance_of_rain,
     }));
 
-    console.log({ locationData, forecastData });
-
     return { locationData, forecastData };
 }
 

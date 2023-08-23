@@ -4,7 +4,10 @@ import "./style/cards.css";
 import fetchWeather from "./weather";
 import elements from "./elements";
 
-elements.locationForm.addEventListener("submit", (event) => {
+async function onFormSubmit(event) {
     event.preventDefault();
-    const data = fetchWeather(elements.locationQuery.value);
-});
+    const data = await fetchWeather(elements.locationQuery.value);
+    console.log(data)
+}
+
+elements.locationForm.addEventListener("submit", onFormSubmit);
