@@ -15,7 +15,10 @@ function processWeatherData(data) {
         date: new Date(forecastDay.date),
         day: format(new Date(forecastDay.date), "EEEE"),
         weather: forecastDay.day.condition.text,
-        weatherImage: forecastDay.day.condition.icon,
+        weatherIcon: forecastDay.day.condition.icon
+            .replace("//", "https://")
+            .replace("64x64", "128x128"),
+
         maxTemp: forecastDay.day.maxtemp_c,
         minTemp: forecastDay.day.mintemp_c,
         avgTemp: forecastDay.day.avgtemp_c,

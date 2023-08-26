@@ -1,6 +1,4 @@
 const elements = {
-    bigCardTemplate: document.querySelector(".templates .card-big"),
-
     main: document.querySelector("main"),
     placeholder: document.querySelector(".placeholder"),
     forecastsWrapper: document.querySelector("forecasts-wrapper"),
