@@ -3,7 +3,7 @@
     --white: #fcf7f8;
     --white-hover: #e7e7e7;
     --accent: #2191fb;
-    --card-big-height: 300px;
+    --card-big-height: 350px;
     --card-big-width: 200px;
 }
 
@@ -40,7 +40,6 @@
     align-items: center;
 }
 
-
 .card-big.selected-card {
     position: relative;
     border-width: 2px;
@@ -52,4 +51,22 @@
     flex: 1;
     display: flex;
     align-items: center;
+}
+
+.temp-table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.temp-table th {
+    font-weight: normal;
+}
+
+.temp-table caption {
+    margin-bottom: 0.25rem;
+    text-align: left;
+    font-weight: bold;
 }

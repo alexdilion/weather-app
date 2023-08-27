@@ -6,23 +6,28 @@ function createDailyForecast(cardData, index) {
     card.setAttribute("data-day-index", index);
 
     card.innerHTML = `
-    <h1 class="card-day">${cardData.day}</h1>
+    <h1 class="card-header">${cardData.day}</h1>
     <div class="card-image-wrapper">
         <img src="${cardData.weatherIcon}" alt="${cardData.weather}" class="card-weather-icon" />
     </div>
     <div class="card-info">
-        <p>
-            Max: 
-            <span class="card-max-temperature">${cardData.maxTemp}°C</span>
-        </p>
-        <p>
-            Average: 
-            <span class="card-avg-temperature">${cardData.avgTemp}°C</span>
-        </p>
-        <p>
-            Min: 
-            <span class="card-min-temperature">${cardData.minTemp}°C</span>
-        </p>
+        <table class="temp-table">
+            <caption>Temperature °C</caption>
+            <thead>
+                <tr>
+                    <th>Min</th>
+                    <th>Avg</th>
+                    <th>Max</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="card-temp-min">${cardData.minTemp}</td>
+                    <td class="card-temp-avg">${cardData.avgTemp}</td>
+                    <td class="card-temp-max">${cardData.maxTemp}</td>
+                </tr>
+            </tbody>
+        </table>
         <p>
             Rain chance:
             <span class="card-rain-chance">${cardData.rainChance}%</span>
@@ -33,9 +38,9 @@ function createDailyForecast(cardData, index) {
     return card;
 }
 
-export default function renderDailyForecasts(forecastData) {
+export function renderDailyForecasts(forecastData) {
     const { dailyForecasts, main } = elements;
-    
+
     main.setAttribute("data-empty", "false");
     dailyForecasts.innerHTML = "";
 
