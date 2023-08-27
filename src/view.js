@@ -38,6 +38,7 @@ function createDailyForecast(cardData, index) {
     return card;
 }
 
+// eslint-disable-next-line import/prefer-default-export
 export function renderDailyForecasts(forecastData) {
     const { dailyForecasts, main } = elements;
 
@@ -47,6 +48,10 @@ export function renderDailyForecasts(forecastData) {
     forecastData.forEach((cardData, index) => {
         const card = createDailyForecast(cardData, index);
 
+        if (index === 0) {
+            card.classList.add("selected-card")
+        }
+
         dailyForecasts.appendChild(card);
     });
-}
+};
