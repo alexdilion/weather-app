@@ -7,11 +7,25 @@
     --card-big-width: 200px;
 }
 
+@media screen and (min-width: 720px) {
+    div.daily-forecasts {
+        gap: 2rem;
+    }
+}
+
+.daily-forecasts-wrapper {
+    width: calc(100vw - 2rem);
+    overflow-x: scroll;
+    padding: 1rem 0;
+}
+
 .daily-forecasts {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
     position: relative;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .card-big {

@@ -28,7 +28,7 @@ body {
     grid-template:
         "header" max-content
         "main-content" 1fr
-        "footer" max-content / 1fr;
+        "footer" max-content / calc(100vw - 2rem);
     padding: 0 1rem;
 }
 
@@ -157,19 +157,20 @@ button .material-symbols-outlined {
 }
 
 main[data-empty="true"] .placeholder,
-main[data-empty="false"] .forecasts-wrapper {
+main[data-empty="false"] .daily-forecasts-wrapper {
     visibility: visible;
 }
 
 main[data-empty="false"] .placeholder,
-main[data-empty="true"] .forecasts-wrapper {
+main[data-empty="true"] .daily-forecasts-wrapper {
     visibility: hidden;
 }
 
 main {
     position: relative;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .placeholder {
