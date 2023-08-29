@@ -16,7 +16,7 @@
 .daily-forecasts-wrapper {
     width: calc(100vw - 2rem);
     overflow-x: scroll;
-    padding: 1rem 0;
+    padding: 1rem 0 2rem;
 }
 
 .daily-forecasts {
@@ -29,6 +29,7 @@
 }
 
 .card-big {
+    position: relative;
     height: var(--card-big-height);
     width: var(--card-big-width);
     top: 0;
@@ -40,8 +41,11 @@
     align-items: center;
 }
 
+.card-big:hover {
+    cursor: pointer;
+}
+
 .card-big.selected-card {
-    position: relative;
     border-width: 2px;
     top: -1rem;
     border-color: var(--accent);
