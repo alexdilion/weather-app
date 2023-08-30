@@ -7,11 +7,20 @@ import * as view from "./view";
 
 let selectedCard = 0;
 
-async function onFormSubmit(event) {
+function onFormSubmit(event) {
     event.preventDefault();
-    const data = await fetchWeather(elements.locationQuery.value);
 
-    view.renderDailyForecasts(data.forecastData);
+    // toggle loading here...
+
+    const request = fetchWeather(elements.locationQuery.value);
+    const delay = new Promise((resolve) => {
+        setTimeout(resolve, 1000);
+    });
+
+    Promise.all([request, delay]).then((values) => {
+        const [data] = values;
+        view.renderDailyForecasts(data.forecastData);
+    });
 }
 
 function onCardClick(event) {
@@ -22,11 +31,11 @@ function onCardClick(event) {
 
     selectedCard = card.getAttribute("data-day-index");
 
-    elements.dailyForecasts.childNodes.forEach(value => {
-        value.classList.remove("selected-card")
-    })
+    elements.dailyForecasts.childNodes.forEach((value) => {
+        value.classList.remove("selected-card");
+    });
 
-    card.classList.add("selected-card")
+    card.classList.add("selected-card");
 }
 
 elements.locationForm.addEventListener("submit", onFormSubmit);
