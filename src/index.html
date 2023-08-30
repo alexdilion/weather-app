@@ -48,7 +48,7 @@
                 </form>
             </nav>
         </header>
-        <main data-empty="true">
+        <main data-state="empty">
             <div class="placeholder">
                 <span class="material-symbols-outlined">foggy</span>
                 <p>
@@ -57,6 +57,7 @@
                     Give us a location and we'll predict the elements!
                 </p>
             </div>
+                <img class="loading-icon" src="<%=require('./images/loading-icon.png').default%>" alt="">
             <div class="daily-forecasts-wrapper">
                 <div class="daily-forecasts"></div>
             </div>

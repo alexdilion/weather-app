@@ -42,16 +42,16 @@ function createDailyForecast(cardData, index) {
 export function renderDailyForecasts(forecastData) {
     const { dailyForecasts, main } = elements;
 
-    main.setAttribute("data-empty", "false");
+    main.setAttribute("data-state", "displaying");
     dailyForecasts.innerHTML = "";
 
     forecastData.forEach((cardData, index) => {
         const card = createDailyForecast(cardData, index);
 
         if (index === 0) {
-            card.classList.add("selected-card")
+            card.classList.add("selected-card");
         }
 
         dailyForecasts.appendChild(card);
     });
-};
+}

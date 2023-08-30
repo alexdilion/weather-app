@@ -156,21 +156,32 @@ button .material-symbols-outlined {
     color: inherit;
 }
 
-main[data-empty="true"] .placeholder,
-main[data-empty="false"] .daily-forecasts-wrapper {
-    visibility: visible;
-}
-
-main[data-empty="false"] .placeholder,
-main[data-empty="true"] .daily-forecasts-wrapper {
-    visibility: hidden;
-}
-
 main {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.placeholder, .loading-icon, .daily-forecasts-wrapper {
+    transition: opacity .25s;
+}
+
+main[data-state="empty"] .placeholder,
+main[data-state="loading"] .loading-icon,
+main[data-state="displaying"] .daily-forecasts-wrapper {
+    visibility: visible;
+    opacity: 1;
+}
+
+main[data-state="empty"] .loading-icon,
+main[data-state="empty"] .daily-forecasts-wrapper,
+main[data-state="loading"] .placeholder,
+main[data-state="loading"] .daily-forecasts-wrapper,
+main[data-state="displaying"] .loading-icon,
+main[data-state="displaying"] .placeholder {
+    visibility: hidden;
+    opacity: 0;
 }
 
 .placeholder {
@@ -194,4 +205,25 @@ main {
     font-size: 6rem;
     text-align: center;
     user-select: none;
+}
+
+.loading-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+
+    animation-name: loading-spin;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes loading-spin {
+    from {
+        transform: rotate(0deg) scaleX(-1);
+    }
+
+    to {
+        transform: rotate(360deg) scaleX(-1);
+    }
 }

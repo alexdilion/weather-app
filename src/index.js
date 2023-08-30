@@ -10,11 +10,11 @@ let selectedCard = 0;
 function onFormSubmit(event) {
     event.preventDefault();
 
-    // toggle loading here...
+    elements.main.setAttribute("data-state", "loading");
 
     const request = fetchWeather(elements.locationQuery.value);
     const delay = new Promise((resolve) => {
-        setTimeout(resolve, 1000);
+        setTimeout(resolve, 1500);
     });
 
     Promise.all([request, delay]).then((values) => {
