@@ -163,28 +163,35 @@ main {
     align-items: center;
 }
 
-.placeholder, .loading-icon, .daily-forecasts-wrapper {
-    transition: opacity .25s;
+.opacity-transition {
+    transition: opacity 0.25s;
 }
 
 main[data-state="empty"] .placeholder,
 main[data-state="loading"] .loading-icon,
-main[data-state="displaying"] .daily-forecasts-wrapper {
+main[data-state="displaying"] .daily-forecasts-wrapper,
+main[data-state="error"] .error-screen {
     visibility: visible;
     opacity: 1;
 }
 
 main[data-state="empty"] .loading-icon,
 main[data-state="empty"] .daily-forecasts-wrapper,
+main[data-state="empty"] .error-screen,
 main[data-state="loading"] .placeholder,
 main[data-state="loading"] .daily-forecasts-wrapper,
+main[data-state="loading"] .error-screen,
 main[data-state="displaying"] .loading-icon,
-main[data-state="displaying"] .placeholder {
+main[data-state="displaying"] .placeholder,
+main[data-state="displaying"] .error-screen,
+main[data-state="error"] .loading-icon,
+main[data-state="error"] .placeholder,
+main[data-state="error"] .daily-forecasts-wrapper {
     visibility: hidden;
     opacity: 0;
 }
 
-.placeholder {
+.message-screen {
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -195,12 +202,12 @@ main[data-state="displaying"] .placeholder {
     left: 50%;
 }
 
-.placeholder p {
+.message-screen p {
     text-align: center;
     line-height: 1.5rem;
 }
 
-.placeholder span {
+.message-screen span {
     color: var(--grey);
     font-size: 6rem;
     text-align: center;
