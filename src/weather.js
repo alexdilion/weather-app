@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 
 const WEATHER_URL =
-    "http://api.weatherapi.com/v1/forecast.json?key=dfe8fba030ff459b8f3141617230708&days=3";
+    "http://api.weatherapi.com/v1/forecast.json?key=1bfcf293c15a4db484e134521233108&days=3";
 
 function processWeatherData(data) {
     const { forecast, location } = data;
@@ -32,6 +32,8 @@ export default async function fetchWeather(location) {
     const requestURL = `${WEATHER_URL}&q=${location}`;
     const response = await fetch(requestURL, { mode: "cors" });
     const data = await response.json();
+
+    if (data.error) return data;
 
     return processWeatherData(data);
 }

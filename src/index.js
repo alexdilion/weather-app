@@ -7,20 +7,27 @@ import * as view from "./view";
 
 let selectedCard = 0;
 
-function onFormSubmit(event) {
-    event.preventDefault();
+function delay(promise, time) {
+    const delayPromise = new Promise((resolve) => {
+        setTimeout(resolve, time);
+    });
 
+    return Promise.all([promise, delayPromise]);
+}
+
+async function onFormSubmit(event) {
+    event.preventDefault();
     elements.main.setAttribute("data-state", "loading");
 
     const request = fetchWeather(elements.locationQuery.value);
-    const delay = new Promise((resolve) => {
-        setTimeout(resolve, 1500);
-    });
+    const [data] = await delay(request, 1500);
 
-    Promise.all([request, delay]).then((values) => {
-        const [data] = values;
-        view.renderDailyForecasts(data.forecastData);
-    });
+    if (data.error) {
+        elements.main.setAttribute("data-state", "error");
+        return;
+    }
+
+    view.renderDailyForecasts(data.forecastData);
 }
 
 function onCardClick(event) {
