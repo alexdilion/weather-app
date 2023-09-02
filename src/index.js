@@ -17,7 +17,7 @@ function delay(promise, time) {
 
 async function requestWeather(location) {
     const request = fetchWeather(location);
-    const [data] = await delay(request, Math.random() * 1000 + 500);
+    const [data] = await delay(request, Math.random() * 500 + 500);
 
     if (data.error) {
         view.setState("error");
