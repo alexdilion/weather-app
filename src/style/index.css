@@ -6,9 +6,15 @@
     --accent: #2191fb;
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 620px) {
     body nav {
         flex-direction: row;
+        align-items: center;
+    }
+
+    nav form {
+        justify-content: flex-end;
+        flex: 1;
     }
 }
 
@@ -45,7 +51,6 @@ nav {
     max-width: 1200px;
     flex-direction: column;
     margin: 2rem 0;
-    align-items: center;
     gap: 1.5rem;
 }
 
@@ -119,6 +124,7 @@ form {
     position: relative;
     width: 80%;
     max-width: 350px;
+    flex: 1;
 }
 
 .text-box + label {
