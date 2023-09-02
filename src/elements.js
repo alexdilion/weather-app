@@ -9,7 +9,7 @@ const elements = {
     locationForm: document.querySelector("#location-form"),
     locationQuery: document.querySelector("#location-query"),
     searchQueryButton: document.querySelector("#search-query-button"),
-    currentLocationButton: document.querySelector("#current-location-query"),
+    currentLocationButton: document.querySelector("#current-location-button"),
 };
 
 export default elements;

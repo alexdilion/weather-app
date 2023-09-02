@@ -41,7 +41,7 @@ function createDailyForecast(cardData, index) {
 export function updateVisibility() {
     const state = elements.main.getAttribute("data-state");
 
-    document
+    elements.main
         .querySelectorAll(".visible-element")
         .forEach((element) => element.classList.replace("visible-element", "hidden-element"));
 
@@ -64,12 +64,15 @@ export function updateVisibility() {
     }
 }
 
+export function setState(state) {
+    elements.main.setAttribute("data-state", state);
+    updateVisibility();
+}
+
 export function renderDailyForecasts(data) {
     const { dailyForecasts, main, locationHeader } = elements;
 
-    main.setAttribute("data-state", "displaying");
-    updateVisibility();
-    
+    setState("displaying");
     dailyForecasts.innerHTML = "";
     locationHeader.textContent = `${data.locationData.name}, ${data.locationData.country}`;
 

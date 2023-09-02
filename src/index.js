@@ -15,21 +15,27 @@ function delay(promise, time) {
     return Promise.all([promise, delayPromise]);
 }
 
-async function onFormSubmit(event) {
-    event.preventDefault();
-    elements.main.setAttribute("data-state", "loading");
-    view.updateVisibility();
-
-    const request = fetchWeather(elements.locationQuery.value);
-    const [data] = await delay(request, 1500);
+async function requestWeather(location) {
+    const request = fetchWeather(location);
+    const [data] = await delay(request, Math.random() * 1000 + 500);
 
     if (data.error) {
-        elements.main.setAttribute("data-state", "error");
-        view.updateVisibility();
-        return;
+        view.setState("error");
+        return false;
     }
 
-    view.renderDailyForecasts(data);
+    return data;
+}
+
+async function onFormSubmit(event) {
+    event.preventDefault();
+    view.setState("loading");
+
+    const data = await requestWeather(elements.locationQuery.value);
+
+    if (data) {
+        view.renderDailyForecasts(data);
+    }
 }
 
 function onCardClick(event) {
@@ -47,5 +53,29 @@ function onCardClick(event) {
     card.classList.add("selected-card");
 }
 
+function onCurrentLocationClick(event) {
+    if (!("geolocation" in navigator)) {
+        alert("Geolocation is unavailable");
+        return;
+    }
+
+    async function onPositionFetched(position) {
+        const location = `${position.coords.latitude},${position.coords.longitude}`;
+        const data = await requestWeather(location);
+
+        if (data) {
+            view.renderDailyForecasts(data);
+        }
+    }
+
+    function onPositionFetchFailed() {
+        view.setState("error");
+    }
+
+    view.setState("loading");
+    navigator.geolocation.getCurrentPosition(onPositionFetched, onPositionFetchFailed);
+}
+
 elements.locationForm.addEventListener("submit", onFormSubmit);
 elements.dailyForecasts.addEventListener("click", onCardClick);
+elements.currentLocationButton.addEventListener("click", onCurrentLocationClick);
