@@ -39,13 +39,14 @@ function createDailyForecast(cardData, index) {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export function renderDailyForecasts(forecastData) {
-    const { dailyForecasts, main } = elements;
+export function renderDailyForecasts(data) {
+    const { dailyForecasts, main, locationHeader } = elements;
 
     main.setAttribute("data-state", "displaying");
     dailyForecasts.innerHTML = "";
+    locationHeader.textContent = `${data.locationData.name}, ${data.locationData.country}`;
 
-    forecastData.forEach((cardData, index) => {
+    data.forecastData.forEach((cardData, index) => {
         const card = createDailyForecast(cardData, index);
 
         if (index === 0) {

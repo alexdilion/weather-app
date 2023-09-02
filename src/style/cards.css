@@ -28,6 +28,10 @@
     margin: 0 auto;
 }
 
+.location-header {
+    margin-bottom: 2rem;
+}
+
 .card-big {
     position: relative;
     height: var(--card-big-height);

@@ -27,7 +27,7 @@ async function onFormSubmit(event) {
         return;
     }
 
-    view.renderDailyForecasts(data.forecastData);
+    view.renderDailyForecasts(data);
 }
 
 function onCardClick(event) {
