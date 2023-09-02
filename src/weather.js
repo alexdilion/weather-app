@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 
 const WEATHER_URL =
-    "http://api.weatherapi.com/v1/forecast.json?key=1bfcf293c15a4db484e134521233108&days=3";
+    "https://api.weatherapi.com/v1/forecast.json?key=1bfcf293c15a4db484e134521233108&days=3";
 
 function processWeatherData(data) {
     const { forecast, location } = data;
