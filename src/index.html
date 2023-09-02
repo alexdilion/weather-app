@@ -49,8 +49,8 @@
             </nav>
         </header>
         <main data-state="empty">
-            <h2 class="location-header"></h2>
-            <div class="placeholder opacity-transition message-screen">
+            <h2 class="location-header hidden-element"></h2>
+            <div class="placeholder opacity-transition message-screen visible-element">
                 <span class="material-symbols-outlined">foggy</span>
                 <p>
                     Uncharted territory, eh?
@@ -59,14 +59,14 @@
                 </p>
             </div>
             <img
-                class="loading-icon opacity-transition"
+                class="loading-icon opacity-transition hidden-element"
                 src="<%=require('./images/loading-icon.png').default%>"
                 alt="" />
-            <div class="error-screen opacity-transition message-screen">
+            <div class="error-screen opacity-transition message-screen hidden-element">
                 <span class="material-symbols-outlined">error</span>
                 <p>Whoops, looks like we couldn't find that location! Sorry!</p>
             </div>
-            <div class="daily-forecasts-wrapper opacity-transition">
+            <div class="daily-forecasts-wrapper opacity-transition hidden-element">
                 <div class="daily-forecasts"></div>
             </div>
         </main>

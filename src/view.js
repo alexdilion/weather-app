@@ -38,11 +38,38 @@ function createDailyForecast(cardData, index) {
     return card;
 }
 
-// eslint-disable-next-line import/prefer-default-export
+export function updateVisibility() {
+    const state = elements.main.getAttribute("data-state");
+
+    document
+        .querySelectorAll(".visible-element")
+        .forEach((element) => element.classList.replace("visible-element", "hidden-element"));
+
+    switch (state) {
+        case "empty":
+            elements.placeholderScreen.classList.replace("hidden-element", "visible-element");
+            break;
+        case "loading":
+            elements.loadingScreen.classList.replace("hidden-element", "visible-element");
+            break;
+        case "error":
+            elements.errorScreen.classList.replace("hidden-element", "visible-element");
+            break;
+        case "displaying":
+            elements.locationHeader.classList.replace("hidden-element", "visible-element");
+            elements.forecastsWrapper.classList.replace("hidden-element", "visible-element");
+            break;
+        default:
+            break;
+    }
+}
+
 export function renderDailyForecasts(data) {
     const { dailyForecasts, main, locationHeader } = elements;
 
     main.setAttribute("data-state", "displaying");
+    updateVisibility();
+    
     dailyForecasts.innerHTML = "";
     locationHeader.textContent = `${data.locationData.name}, ${data.locationData.country}`;
 

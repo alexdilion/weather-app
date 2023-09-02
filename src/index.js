@@ -18,12 +18,14 @@ function delay(promise, time) {
 async function onFormSubmit(event) {
     event.preventDefault();
     elements.main.setAttribute("data-state", "loading");
+    view.updateVisibility();
 
     const request = fetchWeather(elements.locationQuery.value);
     const [data] = await delay(request, 1500);
 
     if (data.error) {
         elements.main.setAttribute("data-state", "error");
+        view.updateVisibility();
         return;
     }
 

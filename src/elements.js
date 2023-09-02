@@ -1,7 +1,9 @@
 const elements = {
     main: document.querySelector("main"),
-    placeholder: document.querySelector(".placeholder"),
-    forecastsWrapper: document.querySelector("forecasts-wrapper"),
+    placeholderScreen: document.querySelector(".placeholder"),
+    loadingScreen: document.querySelector(".loading-icon"),
+    errorScreen: document.querySelector(".error-screen"),
+    forecastsWrapper: document.querySelector(".daily-forecasts-wrapper"),
     dailyForecasts: document.querySelector(".daily-forecasts"),
     locationHeader: document.querySelector(".location-header"),
     locationForm: document.querySelector("#location-form"),

@@ -168,26 +168,12 @@ main {
     transition: opacity 0.25s;
 }
 
-main[data-state="empty"] .placeholder,
-main[data-state="loading"] .loading-icon,
-main[data-state="displaying"] .daily-forecasts-wrapper,
-main[data-state="error"] .error-screen {
+.visible-element {
     visibility: visible;
     opacity: 1;
 }
 
-main[data-state="empty"] .loading-icon,
-main[data-state="empty"] .daily-forecasts-wrapper,
-main[data-state="empty"] .error-screen,
-main[data-state="loading"] .placeholder,
-main[data-state="loading"] .daily-forecasts-wrapper,
-main[data-state="loading"] .error-screen,
-main[data-state="displaying"] .loading-icon,
-main[data-state="displaying"] .placeholder,
-main[data-state="displaying"] .error-screen,
-main[data-state="error"] .loading-icon,
-main[data-state="error"] .placeholder,
-main[data-state="error"] .daily-forecasts-wrapper {
+.hidden-element {
     visibility: hidden;
     opacity: 0;
 }
