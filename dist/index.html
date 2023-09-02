@@ -1,2 +1,84 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Weather App</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400;10..48,700&display=swap" rel="stylesheet"/><script defer="defer" src="bundle.js"></script></head><body><header><nav><div class="logo-wrapper flex-center"><span class="material-symbols-outlined logo-icon">rainy_light</span><h1 class="logo-text">Weather App</h1></div><form id="location-form" action=""><div class="query-wrapper"><input id="location-query" class="text-box fancy-border" placeholder=" " required/> <label for="location-query">Location</label> <span class="query-error"></span></div><button type="submit" id="search-query-button" class="query-button flex-center fancy-border" aria-label="Submit location query"><span class="material-symbols-outlined">search</span></button> <button type="button" id="current-location-button" class="flex-center query-button fancy-border" aria-label="Use current location"><span class="material-symbols-outlined">distance</span></button></form></nav></header><main data-state="empty"><h2 class="location-header hidden-element"></h2><div class="placeholder opacity-transition message-screen visible-element"><span class="material-symbols-outlined">foggy</span><p>Uncharted territory, eh?<br/>Give us a location and we'll predict the elements!</p></div><img class="loading-icon opacity-transition hidden-element" src="ad52721c780eeb5be78a3bf37f522cf1.png" alt=""/><div class="error-screen opacity-transition message-screen hidden-element"><span class="material-symbols-outlined">error</span><p>Whoops, looks like we couldn't find that location! Sorry!</p></div><div class="daily-forecasts-wrapper opacity-transition hidden-element"><div class="daily-forecasts"></div></div></main><footer class="flex-center"><p>Alex Dilion &copy;<script>const year = new Date().getFullYear();
-                    document.write(year);</script></p><a href="https://github.com/alexdilion/weather-app">Source Code</a></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather App</title>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,700,1,0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,400;10..48,700&display=swap"
+            rel="stylesheet" />
+    <script defer src="bundle.js"></script></head>
+    <body>
+        <header>
+            <nav>
+                <div class="logo-wrapper flex-center">
+                    <span class="material-symbols-outlined logo-icon">rainy_light</span>
+                    <h1 class="logo-text">Weather App</h1>
+                </div>
+                <form id="location-form" action="">
+                    <div class="query-wrapper">
+                        <input
+                            type="text"
+                            id="location-query"
+                            class="text-box fancy-border"
+                            placeholder=" "
+                            required />
+                        <label for="location-query">Location</label>
+                        <span class="query-error"></span>
+                    </div>
+                    <button
+                        type="submit"
+                        id="search-query-button"
+                        class="query-button flex-center fancy-border"
+                        aria-label="Submit location query">
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                    <button
+                        type="button"
+                        id="current-location-button"
+                        class="flex-center query-button fancy-border"
+                        aria-label="Use current location">
+                        <span class="material-symbols-outlined">distance</span>
+                    </button>
+                </form>
+            </nav>
+        </header>
+        <main data-state="empty">
+            <h2 class="location-header hidden-element"></h2>
+            <div class="placeholder opacity-transition message-screen visible-element">
+                <span class="material-symbols-outlined">foggy</span>
+                <p>
+                    Uncharted territory, eh?
+                    <br />
+                    Give us a location and we'll predict the elements!
+                </p>
+            </div>
+            <img
+                class="loading-icon opacity-transition hidden-element"
+                src="ad52721c780eeb5be78a3bf37f522cf1.png"
+                alt="" />
+            <div class="error-screen opacity-transition message-screen hidden-element">
+                <span class="material-symbols-outlined">error</span>
+                <p>Whoops, looks like we couldn't find that location! Sorry!</p>
+            </div>
+            <div class="daily-forecasts-wrapper opacity-transition hidden-element">
+                <div class="daily-forecasts"></div>
+            </div>
+        </main>
+        <footer class="flex-center">
+            <p>
+                Alex Dilion &copy;
+                <script>
+                    const year = new Date().getFullYear();
+                    document.write(year);
+                </script>
+            </p>
+            <a href="https://github.com/alexdilion/weather-app">Source Code</a>
+        </footer>
+    </body>
+</html>
